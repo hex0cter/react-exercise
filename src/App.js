@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CurrentValue from './components/CurrentValue/CurrentValue'
+import Buttons from './components/Buttons/Buttons'
 
 class App extends Component {
+  state = {
+    value: 0
+  }
+
+  updateValueHandler = (action, step) => {
+    switch (action) {
+      case 'inc':
+        this.setState(({ value }) => {
+          return { value: value + 1 }
+        })
+        break
+      case 'dec':
+        this.setState(({ value }) => {
+          return { value: value - 1 }
+        })
+        break
+      case 'add':
+        this.setState(({ value }) => {
+          return { value: value + step }
+        })
+        break
+      case 'sub':
+        this.setState(({ value }) => {
+          return { value: value - step }
+        })
+        break
+      default:
+        return
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <CurrentValue value={this.state.value} />
+        <Buttons clicked={this.updateValueHandler} />
       </div>
     );
   }
