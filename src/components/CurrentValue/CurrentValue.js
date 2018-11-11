@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 class CurrentValue extends Component {
     render() {
+        console.log('[CurrrentValue] props', this.props)
         return (
             <div className='CurrentValue'>
                 {this.props.ctr}
@@ -13,8 +14,9 @@ class CurrentValue extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('[CurrentValue] state', state)
     return {
-        ctr: state.currentValue
+        ctr: state.counter.currentValue
     };
 }
 
