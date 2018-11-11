@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './CurrentValue.css'
+import { connect } from 'react-redux'
 
-const currentValue = (props) => (
-    <div className='currentValue'>
-        {props.value}
-    </div>
-)
+class CurrentValue extends Component {
+    render() {
+        return (
+            <div className='CurrentValue'>
+                {this.props.ctr}
+            </div>
+        )
+    }
+}
 
-export default currentValue
+const mapStateToProps = (state) => {
+    return {
+        ctr: state.currentValue
+    };
+}
+
+export default connect(mapStateToProps, null)(CurrentValue)
