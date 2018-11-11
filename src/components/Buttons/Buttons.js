@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Button from './../Button/Button'
 import './Buttons.css'
 import { connect } from 'react-redux'
+import * as actionTypes from '../../store/actions'
 
 class Buttons extends Component {
 
@@ -11,19 +12,19 @@ class Buttons extends Component {
                 <Button text='Increament' clicked={this.props.onIncreament} />
                 <Button text='Decreament' clicked={this.props.onDecrement} />
                 <Button text='Add 5' clicked={this.props.onAdd } />
-                <Button text='Sub 5' clicked={this.props.onSubtract} />
+                <Button text='Sub 8' clicked={this.props.onSubtract} />
             </div>
         )
     }
 }
 
-const mapDispactchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
-        onIncreament: () => dispatch({ type: 'INC' }),
-        onDecrement: () => dispatch({ type: 'DEC' }),
-        onAdd: () => dispatch({ type: 'ADD', step: 5 }),
-        onSubtract: () => dispatch({ type: 'SUB', step: 5 })
+        onIncreament: () => dispatch({ type: actionTypes.INCREMENT }),
+        onDecrement: () => dispatch({ type: actionTypes.DECREMENT }),
+        onAdd: () => dispatch({ type: actionTypes.ADD, step: 5 }),
+        onSubtract: () => dispatch({ type: actionTypes.SUBSTRACT, step: 8 })
     }
 }
 
-export default connect(null, mapDispactchToProps)(Buttons)
+export default connect(null, mapDispatchToProps)(Buttons)

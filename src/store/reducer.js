@@ -1,21 +1,23 @@
+import * as actionTypes from './actions'
+
 const initialState = {
     currentValue: 0
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'INC':
+        case actionTypes.INCREMENT:
             return {
                 currentValue: state.currentValue + 1
             }
-        case 'DEC':
+        case actionTypes.DECREMENT:
             return {
                 currentValue: state.currentValue - 1
             }
-        case 'ADD':
+        case actionTypes.ADD:
             return {
                 currentValue: state.currentValue + action.step
             }
-        case 'SUB':
+        case actionTypes.SUBSTRACT:
             return {
                 currentValue: state.currentValue - action.step
             }
