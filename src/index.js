@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import counterReducer from './store/reducers/counterReducer'
+import historyReducer from './store/reducers/historyReducer'
 import { Provider } from 'react-redux'
 
 import { createStore, combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-    counter: counterReducer
+    counter: counterReducer,
+    hist: historyReducer
 })
+
 const store = createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
