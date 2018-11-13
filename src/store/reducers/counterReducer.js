@@ -4,8 +4,6 @@ const initialState = {
     currentValue: 0
 }
 const counterReducer = (state = initialState, action) => {
-    console.log('historyReducer - state', state)
-    console.log('counterReducer - action', action)
     switch (action.type) {
         case actionTypes.INCREMENT:
             return {

@@ -5,19 +5,18 @@ const initialState = {
 }
 
 const historyReducer = (state = initialState, action) => {
-    console.log('historyReducer - state', state)
-    console.log('historyReducer - action', action)
     switch (action.type) {
         case actionTypes.SAVE:
             return {
-                history: state.history.concat([{v: action.value, k: action.id}])
+                history: state.history.concat([{ v: action.value, k: action.id }])
             }
         case actionTypes.DELETE:
             return {
                 history: state.history.filter(element => element.k !== action.id)
             }
+        default:
+            return state
     }
-    return state
 }
 
 export default historyReducer

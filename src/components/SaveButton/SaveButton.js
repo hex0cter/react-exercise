@@ -4,7 +4,6 @@ import * as actionTypes from '../../store/actions'
 const uuidv4 = require('uuid/v4');
 
 const saveButton = (props) => {
-    console.log('saveButton props', props)
     return (
         <button onClick={() => props.onSave(props.currentValue)}>Save</button>
     )

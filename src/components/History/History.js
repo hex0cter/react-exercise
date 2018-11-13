@@ -7,7 +7,6 @@ const history = (props) => {
         <ul>
             {
                 props.history.map(element => {
-                    console.log('listing element', element)
                     const uuid = element.k
                     return (
                     <li key={uuid} onClick={() => props.onDeleteHistory(uuid)}>{element.v}</li>
