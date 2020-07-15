@@ -15,9 +15,9 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
         id: hello
-      # This step prints an output (time) from the previous step's action.
-      - name: Echo the greeting's time
-        run: echo 'The time was ${{ steps.hello.outputs.time }}.'
-      # This step prints something useful
+      - name: yarn install
+        run: yarn install
+      - name: yarn start
+        run: yarn start
       - name: get some system printout
-        run: set +e; whoami ; pwd ; ls ; docker ps; node --version ; npm --version; yarn --version ; echo "done"
+        run: set -ex; whoami ; pwd ; ls ; docker ps; node --version ; npm --version; yarn --version ; echo "done"
