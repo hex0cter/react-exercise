@@ -24,6 +24,7 @@ async function healthCheck() {
     services.map(async (service) => {
       let status;
       try {
+        console.log("axios get....")
         const resp = await instance.get(service);
         status = resp.status;
       } catch (error) {
