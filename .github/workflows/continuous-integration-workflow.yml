@@ -7,7 +7,10 @@ jobs:
     # Job name is Greeting
     name: End to end tests
     # This job runs on Linux
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     steps:
       # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
       - name: checkout
