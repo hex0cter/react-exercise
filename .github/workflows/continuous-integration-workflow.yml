@@ -10,11 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
-      - name: Hello world
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: 'Mona the Octocat'
-        id: hello
+      - name: checkout
+        uses: actions/checkout@v2
       - name: yarn install
         run: yarn install
       - name: yarn start
