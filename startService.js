@@ -24,13 +24,11 @@ async function healthCheck() {
     services.map(async (service) => {
       let status;
       try {
-        console.log("axios get....")
         const resp = await instance.get(service);
         status = resp.status;
       } catch (error) {
         status = error.response.status;
       } finally {
-        console.log("status:", status)
         console.log(`${service} ==> status: ${status}`); // eslint-disable-line no-console
       }
       return status < 500;
@@ -49,7 +47,6 @@ async function healthCheck() {
       console.log("timeout"); // eslint-disable-line no-console
       break;
     }
-    console.log(".");
     await sleep(checkInterval);
 
     try {
