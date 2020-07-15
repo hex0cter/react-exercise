@@ -15,6 +15,6 @@ jobs:
       - name: yarn install
         run: yarn install
       - name: yarn start
-        run: yarn start
+        run: yarn start& ; node startService.js
       - name: get some system printout
         run: set -ex; whoami ; pwd ; ls ; docker ps; node --version ; npm --version; yarn --version ; echo "done"
