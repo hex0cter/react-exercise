@@ -22,7 +22,7 @@ jobs:
       - name: check browsers
         run: yarn testcafe -b
       - name: yarn start
-        run: yarn start
+        run: yarn start &
       - name: service checkup
         run: node startService.js
       - name: run the tests
