@@ -1,4 +1,4 @@
-name: Greet Everyone
+name: Tests
 # This workflow is triggered on pushes to the repository.
 on: [push]
 
@@ -18,5 +18,7 @@ jobs:
         run: yarn start &
       - name: service checkup
         run: node startService.js
-      - name: get some system printout
-        run: set -ex; whoami ; pwd ; ls ; docker ps; node --version ; npm --version; yarn --version ; echo "done"
+      - name: check browsers
+        run: yarn testcafe -b
+      - name: run the tests
+        run: yarn testcafe chrome tests/test_home.js
