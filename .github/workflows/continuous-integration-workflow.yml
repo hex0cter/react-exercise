@@ -20,4 +20,4 @@ jobs:
         run: echo 'The time was ${{ steps.hello.outputs.time }}.'
       # This step prints something useful
       - name: get some system printout
-        run: whoami ; pwd ; ls ; docker ; npm ; yarn ; echo "done"
+        run: whoami ; pwd ; ls ; docker ps; npm ; yarn ; echo "done"
