@@ -13,16 +13,18 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     steps:
       # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
-      - name: checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
       - name: yarn install
         run: yarn install
-      - name: yarn start
-        run: yarn start &
-      - name: service checkup
-        run: node startService.js
       - name: check browsers
         run: yarn testcafe -b
+      - name: yarn start
+        run: yarn start
+      - name: service checkup
+        run: node startService.js
       - name: run the tests
         uses: DevExpress/testcafe-action@latest
         with:
