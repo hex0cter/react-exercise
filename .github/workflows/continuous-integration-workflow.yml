@@ -23,4 +23,6 @@ jobs:
       - name: check browsers
         run: yarn testcafe -b
       - name: run the tests
-        run: yarn testcafe chrome tests/test_home.js
+        uses: DevExpress/testcafe-action@latest
+        with:
+          args: "chrome tests/test_home.js"
