@@ -25,4 +25,4 @@ jobs:
       - name: run the tests
         uses: DevExpress/testcafe-action@latest
         with:
-          args: "--concurrent 5 chrome tests/test_home.js"
+          args: "--concurrent 10 chrome tests/test_home.js"
