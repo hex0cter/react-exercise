@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [macos-latest, windows-latest]
     steps:
       # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
       - uses: actions/checkout@v2
@@ -21,6 +21,8 @@ jobs:
         run: yarn install
       - name: Check available browsers
         run: yarn testcafe -b
+      - name: Test docker
+        run: docker ps
       - name: Yarn start
         run: yarn start &
       - name: Wait a bit
