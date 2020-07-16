@@ -28,6 +28,7 @@ async function healthCheck() {
         const resp = await instance.get(service);
         status = resp.status;
       } catch (error) {
+        console.log("error in individual checkup", error);
         status = error.response.status;
       } finally {
         console.log(`${service} ==> status: ${status}`); // eslint-disable-line no-console
@@ -55,7 +56,7 @@ async function healthCheck() {
       allHealthy = await healthCheck();
     } catch (error) {
       allHealthy = false;
-      console.log("exception caught, assume not ready")
+      console.log("exception caught, assume not ready", error)
     }
   }
   process.exit(allHealthy ? 0 : 1);
