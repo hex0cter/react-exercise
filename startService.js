@@ -23,6 +23,7 @@ async function healthCheck() {
   const allPromises = await Promise.all(
     services.map(async (service) => {
       let status;
+      console.log("checking individual services");
       try {
         const resp = await instance.get(service);
         status = resp.status;
@@ -31,6 +32,7 @@ async function healthCheck() {
       } finally {
         console.log(`${service} ==> status: ${status}`); // eslint-disable-line no-console
       }
+      console.log("return code from individual services", status);
       return status < 500;
     })
   );
@@ -53,6 +55,7 @@ async function healthCheck() {
       allHealthy = await healthCheck();
     } catch (error) {
       allHealthy = false;
+      console.log("exception caught, assume not ready")
     }
   }
   process.exit(allHealthy ? 0 : 1);
