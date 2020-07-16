@@ -9,8 +9,8 @@ process.on("SIGINT", () => {
 });
 
 const services = ["http://localhost:3000"];
-const expireTime = 300000; // timeout after 5 minutes
-const checkInterval = 2000; // check every 2 seconds
+const expireTime = 60000; // timeout after 1 minutes
+const checkInterval = 5000; // check every 5 seconds
 
 async function healthCheck() {
   const axios = require("axios");
@@ -29,7 +29,7 @@ async function healthCheck() {
         status = resp.status;
       } catch (error) {
         console.log("error in individual checkup", error);
-        status = error.response.status;
+        status = error.response ? error.response.status : null;
       } finally {
         console.log(`${service} ==> status: ${status}`); // eslint-disable-line no-console
       }
