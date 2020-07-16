@@ -17,12 +17,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
+      - name: Test docker
+        run: docker ps
       - name: Yarn install
         run: yarn install
       - name: Check available browsers
         run: yarn testcafe -b
-      - name: Test docker
-        run: docker ps
       - name: Yarn start
         run: yarn start &
       - name: Wait a bit
